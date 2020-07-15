@@ -1,0 +1,49 @@
+﻿@model List<Activity2Part1.Models.UserModel>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Test</title>
+</head>
+<body>
+    <div>
+        @Html.Label("Welcome to Razor")
+        <br />
+        @Html.Label("My Customers are: ")
+
+    </div>
+
+
+    <div>
+        <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone Number</th>
+            </tr>
+            @foreach(var user in Model) {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => user.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => user.Email)</td>
+                    <td>@Html.DisplayFor(modelItem => user.Phone)</td>
+                </tr>
+            }
+        </table>
+
+
+    </div>
+
+
+    <div>
+        @Html.ActionLink("Refresh Page", "../Test")
+
+    </div>
+
+</body>
+</html>
