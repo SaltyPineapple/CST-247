@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2><img src="~/Images/minesweeperIcon.png" /> Welcome</h2>
+
+<div id="mainPageContainer">
+    <div class="row">
+        @using (Html.BeginForm("OnButtonClick", "Home", FormMethod.Post))
+        {
+            <button type="submit" name="homeButtonValue" value="login">
+                Login
+            </button>
+            <button type="submit" name="homeButtonValue" value="register">
+                Register
+            </button>
+        }
+    </div>
+</div>
