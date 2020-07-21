@@ -4,7 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Select Game Options</h2>
+<h1>Welcome @System.Web.HttpContext.Current.User.Identity.Name</h1>
+
+<h4>Select Your Game Options</h4>
 
 <div id="mainPageContainer">
     @using (Html.BeginForm("submitGameDetails", "Game", FormMethod.Post))

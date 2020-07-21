@@ -127,10 +127,12 @@ namespace Registration.Controllers
             if (flag)//win
             {
                 gameBoard.win = "true";
+                TempData["alertMessage"] = "Congratulations You have Won!";
             }
             else//loss
             {
                 gameBoard.win = "false";
+                TempData["alertMessage"] = "Oh No! You've Exploded And Lost!!";
             }
         }
 

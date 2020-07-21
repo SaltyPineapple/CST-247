@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using System.Web.WebSockets;
 
 /* Mark Pratt
@@ -35,6 +36,8 @@ namespace Registration.Controllers
             }
             else {
                 registration.addNewUser(model);
+                FormsAuthentication.SetAuthCookie(model.Username, false);
+                FormsAuthentication.RedirectFromLoginPage(model.Username, false);
                 return View("RegisterPassed");
             }
         }

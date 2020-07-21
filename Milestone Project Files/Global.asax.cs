@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Web.Security;
 
 namespace Registration
 {
@@ -13,6 +14,11 @@ namespace Registration
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+        }
+
+        protected void Session_End(Object sender, EventArgs e)
+        {
+            FormsAuthentication.SignOut();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
+using System.Web.Configuration;
 using System.Web.Mvc;
 using System.Web.Security;
 
@@ -50,6 +51,29 @@ namespace Milestone2.Controllers
             {
                 return View("LoginFailure", user);
             }
+        }
+
+        //This method logs the user out. Still needs work, doesnt clea session correctly yet
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            Session.Abandon();
+
+            // clear authentication cookie
+            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
+            cookie1.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie1);
+
+            // clear session cookie (not necessary for your current problem but i would recommend you do it anyway)
+            SessionStateSection sessionStateSection = (SessionStateSection)WebConfigurationManager.GetSection("system.web/sessionState");
+            HttpCookie cookie2 = new HttpCookie(sessionStateSection.CookieName, "");
+            cookie2.Expires = DateTime.Now.AddYears(-1);
+            Response.Cookies.Add(cookie2);
+
+            FormsAuthentication.RedirectToLoginPage();
+
+
+            return View("Index");
         }
        
     }

@@ -4,7 +4,15 @@
     ViewBag.Title = "PlayMedium";
 }
 
-<h2>PlayMedium</h2>
+@if (null != TempData["alertMessage"])
+{
+    <h2>@TempData["alertMessage"]</h2>
+    <h4>@Html.ActionLink("Play Again?", "Index", "Game", new { area = "" }, new { @class = "navbar-nav" })</h4>
+}
+else
+{
+    <h2>Lets Play!</h2>
+}
 
 <div class="gameBoardContainer">
 

@@ -28,6 +28,12 @@
                     <li class="nav-item">
                         @Html.ActionLink("Register", "Index", "Register", new { area = "" }, new { @class = "navbar-nav" })
                     </li>
+                    @if ((System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        <li class="nav-item">
+                            @Html.ActionLink("Logout", "Index", "Login", new { area = "" }, new { @class = "navbar-nav" })
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
