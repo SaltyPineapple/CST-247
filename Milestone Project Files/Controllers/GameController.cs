@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace Registration.Controllers
 {
+    [Authorize]
     public class GameController : Controller
     {
         public static Board gameBoard;
