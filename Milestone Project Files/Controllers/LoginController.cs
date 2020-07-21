@@ -7,6 +7,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 /* Patrick Garcia
  * 
@@ -24,7 +25,7 @@ namespace Milestone2.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(LoginModel user)
+        public ActionResult Login(LoginModel user)
         {
             //Data validation
             if (ModelState.IsValid)
@@ -36,6 +37,8 @@ namespace Milestone2.Controllers
 
                 if (flag) //Succesful login
                 {
+                    FormsAuthentication.SetAuthCookie(user.UserName, false);
+                    FormsAuthentication.RedirectFromLoginPage(user.UserName, false);
                     return View("LoginSuccess", user);
                 }
                 else //Failed Login

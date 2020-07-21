@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security;
+using System.Security.Claims;
 using System.Web;
+using Microsoft.AspNetCore.Identity;
 using Milestone2.Models;
 
 /* Patrick Garcia

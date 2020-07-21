@@ -13,6 +13,7 @@ namespace Registration.Controllers
         public static Board gameBoard;
 
         // GET: Game
+        
         public ActionResult Index()
         {
             return View();

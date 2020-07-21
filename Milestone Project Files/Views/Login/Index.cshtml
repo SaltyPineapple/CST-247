@@ -7,7 +7,7 @@
     <h2>Login To Your Account</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("Login", "Login", FormMethod.Post)) 
 {
     @Html.AntiForgeryToken()
     
