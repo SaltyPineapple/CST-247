@@ -1,0 +1,40 @@
+﻿@model Registration.Models.Board
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Select Game Options</h2>
+
+<div id="mainPageContainer">
+    @using (Html.BeginForm("submitGameDetails", "Game", FormMethod.Post))
+    {
+        <div class="radioContainer">
+            <div class="col-md-10"  id="difficultyRadio">
+                <strong>@Html.Label("Select Game Difficulty")</strong>
+                <br />
+                @Html.RadioButtonFor(m => m.difficulty, "easy")
+                @Html.Label("Easy")
+                <br />
+                @Html.RadioButtonFor(m => m.difficulty, "medium")
+                @Html.Label("Medium")
+                <br />
+                @Html.RadioButtonFor(m => m.difficulty, "hard")
+                @Html.Label("Hard")
+            </div>
+            <div class="col-md-10" id="sizeRadio">
+                @Html.Label("Select Board Size")
+                <br />
+                @Html.RadioButtonFor(m => m.size, "small")
+                @Html.Label("Small")
+                <br />
+                @Html.RadioButtonFor(m => m.size, "medium")
+                @Html.Label("Medium")
+                <br />
+                @Html.RadioButtonFor(m => m.size, "large")
+                @Html.Label("Large")
+            </div>
+        </div>
+            <button type="submit">Let's Play!</button>       
+     }
+        </div>

@@ -24,8 +24,88 @@ button, input[type="button"], input[type="submit"] {
     margin: 20px
 }
 
-    button:hover, input[type="submit"]:hover, input[type="button"] {
+    button:hover, input[type="submit"]:hover, input[type="button"]:hover {
         background-color: darkgrey;
         border: 2px solid;
     }
 
+.radioContainer {
+    padding: 10px;
+    width: 30vw;
+    height: 40vh;
+    display: flex;
+}
+
+#difficultyRadio, #sizeRadio {
+    margin: auto;
+}
+
+.gameBoardContainer {
+    display: flex;
+    justify-content: center;
+}
+.gameBoardSmall {
+    width: 600px;
+    height: 600px;
+    margin: auto;
+}
+
+    .gameBoardSmall > div {
+        width: 100px;
+        height: 100px;
+        outline: 1px solid;
+        float: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.gameBoardMedium {
+    width: 800px;
+    height: 800px;
+    margin: auto;
+}
+
+    .gameBoardMedium > div {
+        width: 100px;
+        height: 100px;
+        outline: 1px solid;
+        float: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+.gameBoardLarge {
+    width: 1000px;
+    height: 1200px;
+    margin: auto;
+}
+
+    .gameBoardLarge > div {
+        width: 100px;
+        height: 100px;
+        outline: 1px solid;
+        float: left;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+.gameButton {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    margin: 0;
+}
+
+.gameButtonSelected {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    margin: 0;
+    background-color: white;
+}

@@ -1,0 +1,85 @@
+﻿@model Registration.Models.Board
+
+@{
+    ViewBag.Title = "PlayMedium";
+}
+
+<h2>PlayMedium</h2>
+
+<div class="gameBoardContainer">
+
+    @using (@Html.BeginForm("onButtonClick", "Game", FormMethod.Post))
+    {
+        <div class="gameBoardMedium">
+
+            @for (int i = 0; i < Model.length; i++)
+            {
+                for (int j = 0; j < Model.width; j++)
+                {
+
+                    if (Model.win == "inProgress")//Player has not won/lost game is in progress
+                    {
+                        if (Model.grid[i, j].visited)
+                        {
+                            if (Model.grid[i, j].numLiveNeighbors == 0)
+                            {
+                                <div>
+                                    <button class="gameButtonSelected" type="submit" name="gameButtonValue" value=@(i.ToString() + "|" + j.ToString())>
+                                        ~
+                                    </button>
+                                </div>
+                            }
+                            else
+                            {
+                                <div>
+                                    <button class="gameButtonSelected" type="submit" name="gameButtonValue" value=@(i.ToString() + "|" + j.ToString())>
+                                        @Model.grid[i, j].numLiveNeighbors.ToString()
+                                    </button>
+                                </div>
+                            }
+                        }
+                        else
+                        {
+                            <div>
+                                <button class="gameButton" type="submit" name="gameButtonValue" value=@(i.ToString() + "|" + j.ToString())>
+                                </button>
+                            </div>
+                        }
+                    }
+                    else if (Model.win == "true") //Player has won
+                    {
+                        if (Model.grid[i, j].live)//Setting bomb icon as picture of FLAG for win
+                        {
+                            <div>
+                                <img src="~/Images/MinesweeperFlag.png" width="100%" height="100%" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+
+                            </div>
+                        }
+                    }
+                    else if (Model.win == "false") //Player has lost
+                    {
+                        if (Model.grid[i, j].live) //Setting bomb icon as picture of BOMB for loss
+                        {
+                            <div>
+                                <img src="~/Images/MinesweeperBomb.png" width="100%" height="100%" />
+                            </div>
+                        }
+                        else
+                        {
+                            <div>
+
+                            </div>
+                        }
+                    }
+                }
+            }
+
+        </div>
+    }
+
+</div>
