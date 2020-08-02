@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
@@ -27,12 +28,14 @@ namespace Registration.Models {
         public int Age { get; set; }
 
         [Required(ErrorMessage = "Email is Required")]
+        [RegularExpression(@"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$", ErrorMessage = "Email is not valid.")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Username is Required")]
         public string Username { get; set; }
 
         [Required(ErrorMessage = "Password is Required")]
+        [DataType(DataType.Password)]
         public string Password { get; set; }
 
         public int Id { get; set; }
