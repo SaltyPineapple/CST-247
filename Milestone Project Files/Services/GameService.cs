@@ -85,5 +85,23 @@ namespace Registration.Services
             }
         }
 
+        public String getPartialView(Board gameboard)
+        {
+            switch (gameboard.size)
+            {
+                case "small":
+                    return "~/Views/Game/_PlaySmall.cshtml";
+                    break;
+                case "medium":
+                    return "~/Views/Game/_PlayMedium.cshtml";
+                    break;
+                case "large":
+                    return "~/Views/Game/_PlayLarge.cshtml";
+                    break;
+                default:
+                    return "";
+            }
+        }
+
     }
 }

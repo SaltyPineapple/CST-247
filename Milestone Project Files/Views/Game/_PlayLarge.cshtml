@@ -1,10 +1,6 @@
 ﻿@model Registration.Models.Board
 
-@{
-    ViewBag.Title = "PlayMedium";
-}
-
-@if (null != TempData["alertMessage"])
+@if (TempData["alertMessage"] != null)
 {
     <h2>@TempData["alertMessage"]</h2>
     <h4>@Html.ActionLink("Play Again?", "Index", "Game", new { area = "" }, new { @class = "navbar-nav" })</h4>
@@ -12,13 +8,20 @@
 else
 {
     <h2>Lets Play!</h2>
+    <h2>@DateTime.Now</h2>
 }
 
 <div class="gameBoardContainer">
 
-    @using (@Html.BeginForm("onButtonClick", "Game", FormMethod.Post))
+    @using (@Ajax.BeginForm("onButtonClick", "Game", new AjaxOptions
     {
-        <div class="gameBoardMedium">
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "gameBoardPartial"
+    }))
+    {
+
+        <div class="gameBoardLarge">
 
             @for (int i = 0; i < Model.length; i++)
             {
@@ -87,6 +90,8 @@ else
             }
 
         </div>
+
     }
 
 </div>
+

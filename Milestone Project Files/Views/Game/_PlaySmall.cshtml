@@ -9,12 +9,17 @@
 else
 {
     <h2>Lets Play!</h2>
+    <h2>@DateTime.Now</h2>
 }
-
 
 <div class="gameBoardContainer">
 
-    @using (@Html.BeginForm("onButtonClick", "Game", FormMethod.Post))
+    @using (Ajax.BeginForm("onButtonClick", "Game", new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "gameBoardPartial"
+    }))
     {
         <div class="gameBoardSmall">
 
@@ -56,7 +61,7 @@ else
                         if (Model.grid[i, j].live)//Setting bomb icon as picture of FLAG for win
                         {
                             <div>
-                                <img src="~/Images/MinesweeperFlag.png" />
+                                <img src="~/Images/MinesweeperFlag.png" width="100%" height="100%"/>
                             </div>
                         }
                         else
@@ -71,7 +76,7 @@ else
                         if (Model.grid[i, j].live) //Setting bomb icon as picture of BOMB for loss
                         {
                             <div>
-                                <img src="~/Images/MinesweeperBomb.png" />
+                                <img src="~/Images/MinesweeperBomb.png" width="100%" height="100%"/>
                             </div>
                         }
                         else

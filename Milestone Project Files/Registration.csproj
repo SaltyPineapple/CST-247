@@ -243,6 +243,8 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -282,11 +284,10 @@
     <Content Include="Views\Register\RegisterFailed.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Game\Index.cshtml" />
-    <Content Include="Views\Game\PlaySmall.cshtml" />
-    <Content Include="Views\Game\PlayMedium.cshtml" />
-    <Content Include="Views\Game\PlayLarge.cshtml" />
     <Content Include="Views\Game\_PlaySmall.cshtml" />
     <Content Include="Views\Game\Play.cshtml" />
+    <Content Include="Views\Game\_PlayMedium.cshtml" />
+    <Content Include="Views\Game\_PlayLarge.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

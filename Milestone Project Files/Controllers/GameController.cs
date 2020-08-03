@@ -14,27 +14,28 @@ namespace Registration.Controllers
         public static Board gameBoard;
         private static GameService gService = new GameService();
 
-        // GET: Game
-        
+        // GET: Game 
         public ActionResult Index()
         {
             return View();
         }
 
 
-        [HttpPost]
+
         /*
          * This method redirects the user to the appropriate page depending on selected board size
          * 
          */
+        [HttpPost]
         public ActionResult submitGameDetails(Board m)
         {
             //using game servie to set up game board
             gameBoard = new Board();
             gameBoard = gService.SetUpBoard(m);
+            ViewBag.selectedPartial = gService.getPartialView(gameBoard);
 
             //Using game service to return appropriate gameBoard based on size
-            return View(gService.DirectToGame(gameBoard.size), gameBoard);
+            return View("Play", gameBoard);
         }
 
 
@@ -42,6 +43,7 @@ namespace Registration.Controllers
          * This method handles button clicks for the game board
          * 
          */
+
         public ActionResult onButtonClick(String gameButtonValue)
         {
             //Geting location of selected button and storing within local variables
@@ -73,7 +75,7 @@ namespace Registration.Controllers
             }            
 
             //Using game service to return appropriate gameBoard based on size
-            return View(gService.DirectToGame(gameBoard.size), gameBoard);
+            return PartialView(gService.getPartialView(gameBoard), gameBoard);
         }
 
     }

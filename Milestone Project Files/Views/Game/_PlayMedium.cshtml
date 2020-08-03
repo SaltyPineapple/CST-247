@@ -1,10 +1,7 @@
 ﻿@model Registration.Models.Board
 
-@{
-    ViewBag.Title = "PlayLarge";
-}
 
-@if (null != TempData["alertMessage"])
+@if (TempData["alertMessage"] != null)
 {
     <h2>@TempData["alertMessage"]</h2>
     <h4>@Html.ActionLink("Play Again?", "Index", "Game", new { area = "" }, new { @class = "navbar-nav" })</h4>
@@ -12,14 +9,19 @@
 else
 {
     <h2>Lets Play!</h2>
+    <h2>@DateTime.Now</h2>
 }
 
 <div class="gameBoardContainer">
 
-    @using (@Html.BeginForm("onButtonClick", "Game", FormMethod.Post))
+    @using (Ajax.BeginForm("onButtonClick", "Game", new AjaxOptions
     {
-
-        <div class="gameBoardLarge">
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "gameBoardPartial"
+    }))
+    {
+        <div class="gameBoardMedium">
 
             @for (int i = 0; i < Model.length; i++)
             {
@@ -33,8 +35,7 @@ else
                             if (Model.grid[i, j].numLiveNeighbors == 0)
                             {
                                 <div>
-                                    <asp:button class="gameButtonSelected" runat="server" type="submit" name="gameButtonValue" onclick="this.disabled=true;" UseSubmitBehavior="false" value =@(i.ToString() + "|" + j.ToString())>
-                                        
+                                    <asp:button class="gameButtonSelected" runat="server" type="submit" name="gameButtonValue" onclick="this.disabled=true;" UseSubmitBehavior="false" value=@(i.ToString() + "|" + j.ToString())>
                                     </asp:button>
                                 </div>
                             }
@@ -60,7 +61,7 @@ else
                         if (Model.grid[i, j].live)//Setting bomb icon as picture of FLAG for win
                         {
                             <div>
-                                <img src="~/Images/MinesweeperFlag.png" width="100%" height="100%" />
+                                <img src="~/Images/MinesweeperFlag.png" width="100%" height="100%"/>
                             </div>
                         }
                         else
@@ -75,7 +76,7 @@ else
                         if (Model.grid[i, j].live) //Setting bomb icon as picture of BOMB for loss
                         {
                             <div>
-                                <img src="~/Images/MinesweeperBomb.png" width="100%" height="100%" />
+                                <img src="~/Images/MinesweeperBomb.png" width="100%" height="100%"/>
                             </div>
                         }
                         else
@@ -89,7 +90,7 @@ else
             }
 
         </div>
-
     }
 
 </div>
+
