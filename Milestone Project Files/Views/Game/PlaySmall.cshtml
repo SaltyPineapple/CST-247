@@ -4,7 +4,7 @@
     ViewBag.Title = "PlaySmall";
 }
 
-@if (null != TempData["alertMessage"])
+@if (TempData["alertMessage"] != null)
 {
     <h2>@TempData["alertMessage"]</h2>
     <h4>@Html.ActionLink("Play Again?", "Index", "Game", new { area = "" }, new { @class = "navbar-nav" })</h4>
@@ -33,9 +33,8 @@ else
                             if (Model.grid[i, j].numLiveNeighbors == 0)
                             {
                                 <div>
-                                    <button class="gameButtonSelected" type="submit" name="gameButtonValue" value=@(i.ToString() + "|" + j.ToString())>
-                                        ~
-                                    </button>
+                                    <asp:button class="gameButtonSelected" runat="server" type="submit" name="gameButtonValue" onclick="this.disabled=true;" UseSubmitBehavior="false" value=@(i.ToString() + "|" + j.ToString())>
+                                    </asp:button>
                                 </div>
                             }
                             else
@@ -60,7 +59,7 @@ else
                         if (Model.grid[i, j].live)//Setting bomb icon as picture of FLAG for win
                         {
                             <div>
-                                <img src="~/Images/MinesweeperFlag.png" width="100%" height="100%" />
+                                <img src="~/Images/MinesweeperFlag.png" />
                             </div>
                         }
                         else
@@ -75,7 +74,7 @@ else
                         if (Model.grid[i, j].live) //Setting bomb icon as picture of BOMB for loss
                         {
                             <div>
-                                <img src="~/Images/MinesweeperBomb.png" width="100%" height="100%" />
+                                <img src="~/Images/MinesweeperBomb.png"/>
                             </div>
                         }
                         else

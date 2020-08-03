@@ -1,10 +1,7 @@
 ﻿@model Registration.Models.Board
 
-@{
-    ViewBag.Title = "PlayMedium";
-}
 
-@if (null != TempData["alertMessage"])
+@if (TempData["alertMessage"] != null)
 {
     <h2>@TempData["alertMessage"]</h2>
     <h4>@Html.ActionLink("Play Again?", "Index", "Game", new { area = "" }, new { @class = "navbar-nav" })</h4>
@@ -14,11 +11,12 @@ else
     <h2>Lets Play!</h2>
 }
 
+
 <div class="gameBoardContainer">
 
     @using (@Html.BeginForm("onButtonClick", "Game", FormMethod.Post))
     {
-        <div class="gameBoardMedium">
+        <div class="gameBoardSmall">
 
             @for (int i = 0; i < Model.length; i++)
             {
@@ -58,7 +56,7 @@ else
                         if (Model.grid[i, j].live)//Setting bomb icon as picture of FLAG for win
                         {
                             <div>
-                                <img src="~/Images/MinesweeperFlag.png" width="100%" height="100%" />
+                                <img src="~/Images/MinesweeperFlag.png" />
                             </div>
                         }
                         else
@@ -73,7 +71,7 @@ else
                         if (Model.grid[i, j].live) //Setting bomb icon as picture of BOMB for loss
                         {
                             <div>
-                                <img src="~/Images/MinesweeperBomb.png" width="100%" height="100%" />
+                                <img src="~/Images/MinesweeperBomb.png" />
                             </div>
                         }
                         else
@@ -85,8 +83,9 @@ else
                     }
                 }
             }
-
         </div>
     }
 
+
 </div>
+

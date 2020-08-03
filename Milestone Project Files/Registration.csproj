@@ -266,6 +266,7 @@
     <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\PlayerModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\Security.cs" />
     <Compile Include="Services\SecurityDAO.cs" />
     <Compile Include="Services\SecurityService.cs" />
@@ -284,6 +285,8 @@
     <Content Include="Views\Game\PlaySmall.cshtml" />
     <Content Include="Views\Game\PlayMedium.cshtml" />
     <Content Include="Views\Game\PlayLarge.cshtml" />
+    <Content Include="Views\Game\_PlaySmall.cshtml" />
+    <Content Include="Views\Game\Play.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

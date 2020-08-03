@@ -33,9 +33,9 @@ else
                             if (Model.grid[i, j].numLiveNeighbors == 0)
                             {
                                 <div>
-                                    <button class="gameButtonSelected" type="submit" name="gameButtonValue" value=@(i.ToString() + "|" + j.ToString())>
-                                        ~
-                                    </button>
+                                    <asp:button class="gameButtonSelected" runat="server" type="submit" name="gameButtonValue" onclick="this.disabled=true;" UseSubmitBehavior="false" value =@(i.ToString() + "|" + j.ToString())>
+                                        
+                                    </asp:button>
                                 </div>
                             }
                             else
