@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 namespace Registration.Services {
     public class Security {
 
-        //SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MinesweeperDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+        //SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Players;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
 
         public bool existingUser(PlayerModel model) {
@@ -100,7 +100,7 @@ namespace Registration.Services {
         public SqlConnection ConnectToDb()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MinesweeperDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connection.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Players;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return connection;
         }
     }
