@@ -1,0 +1,7 @@
+C:\Users\mjpra\Documents\GCU\CST 247\Week 6\Activity 4\HelloWorldService\bin\HelloWorldService.dll.config
+C:\Users\mjpra\Documents\GCU\CST 247\Week 6\Activity 4\HelloWorldService\bin\HelloWorldService.dll
+C:\Users\mjpra\Documents\GCU\CST 247\Week 6\Activity 4\HelloWorldService\bin\HelloWorldService.pdb
+C:\Users\mjpra\Documents\GCU\CST 247\Week 6\Activity 4\HelloWorldService\obj\Debug\HelloWorldService.csprojAssemblyReference.cache
+C:\Users\mjpra\Documents\GCU\CST 247\Week 6\Activity 4\HelloWorldService\obj\Debug\HelloWorldService.csproj.CoreCompileInputs.cache
+C:\Users\mjpra\Documents\GCU\CST 247\Week 6\Activity 4\HelloWorldService\obj\Debug\HelloWorldService.dll
+C:\Users\mjpra\Documents\GCU\CST 247\Week 6\Activity 4\HelloWorldService\obj\Debug\HelloWorldService.pdb
