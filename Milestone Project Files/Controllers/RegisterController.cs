@@ -36,6 +36,10 @@ namespace Registration.Controllers
             }
             else {
                 registration.addNewUser(model);
+
+                //Saving user in session
+                System.Web.HttpContext.Current.Session["user"] = model;
+
                 FormsAuthentication.SetAuthCookie(model.Username, false);
                 FormsAuthentication.RedirectFromLoginPage(model.Username, false);
                 return View("RegisterPassed");

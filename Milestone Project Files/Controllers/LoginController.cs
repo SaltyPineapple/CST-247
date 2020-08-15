@@ -38,6 +38,9 @@ namespace Milestone2.Controllers
 
                 if (flag) //Succesful login
                 {
+                    //Saving user in session
+                    System.Web.HttpContext.Current.Session["user"] = user;
+
                     FormsAuthentication.SetAuthCookie(user.UserName, false);
                     FormsAuthentication.RedirectFromLoginPage(user.UserName, false);
                     return View("LoginSuccess", user);

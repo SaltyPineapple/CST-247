@@ -1,7 +1,10 @@
-﻿using Registration.Models;
+﻿using Milestone2.Models;
+using Milestone2.Services.Business;
+using Registration.Models;
 using Registration.Services;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -13,6 +16,7 @@ namespace Registration.Controllers
     {
         public static Board gameBoard;
         private static GameService gService = new GameService();
+        private static Stopwatch stopWatch;
 
         // GET: Game 
         public ActionResult Index()
@@ -29,10 +33,13 @@ namespace Registration.Controllers
         [HttpPost]
         public ActionResult submitGameDetails(Board m)
         {
+            stopWatch = new Stopwatch();
+            stopWatch.Start();
             //using game servie to set up game board
             gameBoard = new Board();
             gameBoard = gService.SetUpBoard(m);
             ViewBag.selectedPartial = gService.getPartialView(gameBoard);
+            System.Web.HttpContext.Current.Session["NumClicks"] = 0;
 
             //Using game service to return appropriate gameBoard based on size
             return View("Play", gameBoard);
@@ -46,6 +53,9 @@ namespace Registration.Controllers
 
         public ActionResult onButtonClick(String gameButtonValue)
         {
+            System.Web.HttpContext.Current.Session["NumClicks"] = ((int)System.Web.HttpContext.Current.Session["NumClicks"]) + 1; //iterating clicks
+            int clicks = (int)System.Web.HttpContext.Current.Session["NumClicks"];
+
             //Geting location of selected button and storing within local variables
             String[] strArr = gameButtonValue.Split('|');
             int x = int.Parse(strArr[0]);
@@ -66,11 +76,26 @@ namespace Registration.Controllers
                 gameBoard.win = gService.finishGame(gameBoard);
                 if(gameBoard.win == "true")
                 {
-                    TempData["alertMessage"] = "Congratulations You have Won!";
+                    //Stopping game time
+                    stopWatch.Stop();
+
+                    //Accessing user scores
+                    SecurityService service = new SecurityService();
+                    int time = (int)stopWatch.Elapsed.TotalSeconds;
+                    LoginModel p = (LoginModel)System.Web.HttpContext.Current.Session["user"];
+
+                    //Saving user score in database
+                    service.SaveUserScore(new PlayerScoreModel(p.UserName, (int)System.Web.HttpContext.Current.Session["NumClicks"], time));
+
+                    TempData["alertMessage"] = "Congratulations You have Won!\nTotal Time Taken (Seconds): " + time + "\nTotal Number of Clicks: " + System.Web.HttpContext.Current.Session["NumClicks"].ToString();
                 }
                 else if(gameBoard.win == "false")
                 {
-                    TempData["alertMessage"] = "Oh No! You've Exploded And Lost!!";
+                    //Stopping game time
+                    stopWatch.Stop();
+                    int time = (int)stopWatch.Elapsed.TotalSeconds;
+
+                    TempData["alertMessage"] = "Oh No! You've Exploded And Lost!\nTotal Time Taken (Seconds): " + time + "\nTotal Number of Clicks: " + System.Web.HttpContext.Current.Session["NumClicks"].ToString();
                 }
             }            
 
