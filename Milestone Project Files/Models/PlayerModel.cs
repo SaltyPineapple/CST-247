@@ -27,6 +27,11 @@ namespace Registration.Models {
             this.Password = password;
         }
 
+        public PlayerModel()
+        {
+
+        }
+
         [Required(ErrorMessage = "First Name is Required")]
         [DataMember]
         public string FirstName { get; set; }

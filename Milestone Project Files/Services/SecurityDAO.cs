@@ -113,7 +113,7 @@ namespace Milestone2.Services.Data
                 connection.Open();
                 try
                 {
-                    String sql = "Insert into dbo.UserScores(USERNAME, CLICKS, TIMETAKEN) values(@USERNAME, @CLICKS, @TIMETAKEN)";
+                    String sql = "Insert into UserScores(USERNAME, CLICKS, TIMETAKEN) values(@USERNAME, @CLICKS, @TIMETAKEN)";
 
                     using (SqlCommand cmd = new SqlCommand(sql, connection))
                     {

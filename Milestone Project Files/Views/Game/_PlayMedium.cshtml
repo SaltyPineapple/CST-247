@@ -4,13 +4,30 @@
 @if (TempData["alertMessage"] != null)
 {
     <h2>@TempData["alertMessage"]</h2>
-    <h4>@Html.ActionLink("Play Again?", "Index", "Game", new { area = "" }, new { @class = "navbar-nav" })</h4>
+
+    <h4><button type="button" onclick="location.href='@Url.Action("Index","Game")'"> Play Again?</button></h4>
 }
-else
-{
     <h2>Lets Play!</h2>
     
-}
+    <script language="JavaScript">
+
+        var needToConfirm = true;
+
+        window.onbeforeunload = confirmExit;
+
+        function PlayAgain() {
+            $.get("/Game/Index");
+        }
+
+        function confirmExit() {
+
+            if (needToConfirm) {
+                $.post("/Game/SaveGameState");
+                return "DONT FORGET TO SAVE";
+            }
+        }
+
+    </script>
 
 <div class="gameBoardContainer">
 

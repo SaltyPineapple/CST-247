@@ -20,3 +20,5 @@ C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\MinesweeperService\bin\System
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\MinesweeperService\bin\System.Web.Razor.xml
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\MinesweeperService\bin\System.Web.WebPages.Deployment.xml
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\MinesweeperService\obj\Debug\MinesweeperService.csproj.CopyComplete
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\MinesweeperService\bin\Newtonsoft.Json.dll
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\MinesweeperService\bin\Newtonsoft.Json.xml

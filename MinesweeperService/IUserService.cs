@@ -28,6 +28,7 @@ namespace MinesweeperService
         [OperationContract]
         [WebGet(ResponseFormat = WebMessageFormat.Json, UriTemplate = "GetAllUserScores/")]
         UserScoreDTO GetAllUserScores();
+
     }
 
 
