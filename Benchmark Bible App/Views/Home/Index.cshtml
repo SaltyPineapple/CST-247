@@ -1,0 +1,22 @@
+﻿@model BibleVerseSearchApp.Models.Verse
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bible Verse Search Home Page</h2>
+
+<div id="mainPageContainer">
+    <div class="row">
+        @using (Html.BeginForm("OnButtonClick", "Home", FormMethod.Post))
+        {
+            <button type="submit" name="buttonValue" value="search">
+                Verse Search
+            </button>
+            <button type="submit" name="buttonValue" value="entry">
+                Verse Entry
+            </button>
+        }
+    </div>
+</div>
+
