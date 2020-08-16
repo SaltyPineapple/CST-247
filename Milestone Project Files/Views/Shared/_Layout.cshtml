@@ -10,6 +10,8 @@
     <link href="@Url.Content("~/Styles/StyleSheet.css")" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/jquery-3.4.1.min.js"></script>
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -39,19 +41,14 @@
                     @if (System.Web.HttpContext.Current.Session["GameBoard"] != null)
                     {
                         <li class="nav-item">                      
-                            @Html.ActionLink("Start New Game?", "Index", "Game", new { onclick = "setFlag();" }, new { @class = "navbar-nav" })
+                            
+                            <a class="navbar-nav" href="@Url.Action("StartNewGame","Game")">Start New Game?</a>
                         </li>
                     }
                 </ul>
             </div>
         </div>
     </div>
-
-    <script>
-        function setFlag() {
-            System.Web.HttpContext.Current.Session["flag"] = null;
-        }
-    </script>
 
     <div class="container body-content">
         @RenderBody()

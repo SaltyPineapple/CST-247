@@ -54,6 +54,7 @@ namespace Registration.Controllers
                 m = (Board)TempData["LoadedBoard"];
                 ViewBag.selectedPartial = gService.getPartialView(m);
                 System.Web.HttpContext.Current.Session["GameBoard"] = m;
+                System.Web.HttpContext.Current.Session["flag"] = true;
                 return View("Play", m);
             }
 
@@ -62,6 +63,7 @@ namespace Registration.Controllers
             gameBoard = gService.SetUpBoard(m);
             ViewBag.selectedPartial = gService.getPartialView(gameBoard);
             System.Web.HttpContext.Current.Session["GameBoard"] = gameBoard;
+            System.Web.HttpContext.Current.Session["flag"] = true;
 
             //Using game service to return appropriate gameBoard based on size
             return View("Play", gameBoard);
@@ -151,6 +153,14 @@ namespace Registration.Controllers
                 RedirectToAction("Index");
             }
             //submitGameDetails(board);
+        }
+
+        public ActionResult StartNewGame()
+        {
+            System.Web.HttpContext.Current.Session["flag"] = null;
+            System.Web.HttpContext.Current.Session["GameBoard"] = null;
+
+            return RedirectToAction("Index");
         }
 
     }
