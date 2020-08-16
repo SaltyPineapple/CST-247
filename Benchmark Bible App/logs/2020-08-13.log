@@ -1,0 +1,38 @@
+2020-08-13 20:18:11.9217 INFO Verse entry success!
+2020-08-13 20:18:42.4894 INFO Verse entry denied. Verse may already exist
+2020-08-13 20:34:46.2180 INFO Verse not found.
+2020-08-13 20:35:35.1506 INFO Verse not found.
+2020-08-13 20:35:59.5975 INFO Verse not found.
+2020-08-13 20:46:49.7115 INFO Valid Testament
+2020-08-13 20:46:49.7723 INFO Verse entry success!
+2020-08-13 20:47:47.3548 INFO Valid Testament
+2020-08-13 20:47:47.3998 INFO Verse entry success!
+2020-08-13 20:50:47.0142 INFO Invalid Testament
+2020-08-13 20:50:54.6514 INFO Verse entry denied. Could be invalid parameters
+2020-08-13 21:17:12.7997 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8506 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8506 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8506 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8506 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8506 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8615 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8615 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8615 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8615 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8615 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8615 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8615 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8775 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8775 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8775 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8775 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8775 INFO Invalid Testament and Book combo
+2020-08-13 21:17:12.8775 INFO Valid Testament and Book
+2020-08-13 21:17:12.9235 INFO Verse entry success!
+2020-08-13 21:20:20.7924 INFO Valid Testament and Book
+2020-08-13 21:20:28.2299 INFO Invalid Testament and Book combo
+2020-08-13 21:22:21.1194 INFO Verse entry denied. Could be invalid parameters
+2020-08-13 21:23:31.1881 INFO Valid Testament and Book
+2020-08-13 21:23:31.1991 INFO Verse entry success!
+2020-08-13 21:23:50.6770 INFO Verse Found!
+2020-08-13 21:24:02.6706 INFO Verse Found!
