@@ -3,6 +3,7 @@ using Milestone2.Services.Data;
 using Registration.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -31,6 +32,20 @@ namespace Milestone2.Services.Business
         {
             service = new SecurityDAO();
             service.SaveUserScore(score);
+        }
+
+        public void SaveGameState(Board board)
+        {
+            string fileName = String.Format(@"{0}\GameState.txt", System.AppDomain.CurrentDomain.BaseDirectory);
+
+            SecurityDAO.WriteToXmlFile<Board>(fileName, board);
+        }
+
+        public Board GetGameState()
+        {
+            string fileName = String.Format(@"{0}\GameState.txt", System.AppDomain.CurrentDomain.BaseDirectory);
+
+            return SecurityDAO.ReadFromXmlFile(fileName);
         }
     }
 }

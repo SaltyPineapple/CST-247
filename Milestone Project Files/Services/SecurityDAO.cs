@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Security;
 using System.Security.Claims;
 using System.Web;
+using System.Xml.Serialization;
 using Microsoft.AspNetCore.Identity;
 using Milestone2.Models;
+using Newtonsoft.Json;
 using Registration.Models;
 
 /* Patrick Garcia
@@ -138,11 +141,34 @@ namespace Milestone2.Services.Data
             }
         }
 
+        public static void WriteToXmlFile<T>(string filePath, T objectToWrite, bool append = false) where T : new()
+        {
+            using (StreamWriter file = File.CreateText(filePath))
+            {
+                JsonSerializer serializer = new JsonSerializer();
+                //serialize object directly into file stream
+                serializer.Serialize(file, objectToWrite);
+            }
+        }
+
+        public static Board ReadFromXmlFile(String filePath)
+        {
+            if (File.Exists(filePath))
+            {
+                return JsonConvert.DeserializeObject<Board>(File.ReadAllText(filePath));
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+
         //This method returns a SQL connection to a database
         public SqlConnection ConnectToDb()
         {
             SqlConnection connection = new SqlConnection();
-            connection.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Players;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connection.ConnectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=MinesweeperDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             return connection;
         }
     }

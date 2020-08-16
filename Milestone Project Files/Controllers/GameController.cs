@@ -1,5 +1,6 @@
 ﻿using Milestone2.Models;
 using Milestone2.Services.Business;
+using Milestone2.Services.Data;
 using Registration.Models;
 using Registration.Services;
 using System;
@@ -21,7 +22,17 @@ namespace Registration.Controllers
         // GET: Game 
         public ActionResult Index()
         {
-            return View();
+            if(System.Web.HttpContext.Current.Session["flag"] == null)
+            {
+                
+                return View();
+            }
+            else
+            {
+                
+                TempData["LoadedBoard"] = null;
+                return View();
+            }         
         }
 
 
@@ -32,14 +43,25 @@ namespace Registration.Controllers
          */
         [HttpPost]
         public ActionResult submitGameDetails(Board m)
-        {
+        {            
             stopWatch = new Stopwatch();
             stopWatch.Start();
+
+            System.Web.HttpContext.Current.Session["NumClicks"] = 0;
+
+            if (TempData["LoadedBoard"] != null)
+            {
+                m = (Board)TempData["LoadedBoard"];
+                ViewBag.selectedPartial = gService.getPartialView(m);
+                System.Web.HttpContext.Current.Session["GameBoard"] = m;
+                return View("Play", m);
+            }
+
             //using game servie to set up game board
             gameBoard = new Board();
             gameBoard = gService.SetUpBoard(m);
             ViewBag.selectedPartial = gService.getPartialView(gameBoard);
-            System.Web.HttpContext.Current.Session["NumClicks"] = 0;
+            System.Web.HttpContext.Current.Session["GameBoard"] = gameBoard;
 
             //Using game service to return appropriate gameBoard based on size
             return View("Play", gameBoard);
@@ -76,6 +98,8 @@ namespace Registration.Controllers
                 gameBoard.win = gService.finishGame(gameBoard);
                 if(gameBoard.win == "true")
                 {
+                    System.Web.HttpContext.Current.Session["flag"] = null;
+
                     //Stopping game time
                     stopWatch.Stop();
 
@@ -91,6 +115,8 @@ namespace Registration.Controllers
                 }
                 else if(gameBoard.win == "false")
                 {
+                    System.Web.HttpContext.Current.Session["flag"] = null;
+
                     //Stopping game time
                     stopWatch.Stop();
                     int time = (int)stopWatch.Elapsed.TotalSeconds;
@@ -101,6 +127,30 @@ namespace Registration.Controllers
 
             //Using game service to return appropriate gameBoard based on size
             return PartialView(gService.getPartialView(gameBoard), gameBoard);
+        }
+
+        [HttpPost]
+        public void SaveGameState()
+        {
+            SecurityService service = new SecurityService();
+            service.SaveGameState(gameBoard);
+        }
+
+        [HttpPost]
+        public void GetGameState()
+        {
+            SecurityService service = new SecurityService();
+            var board = service.GetGameState();
+            if(board == null)
+            {
+
+            }
+            else
+            {
+                TempData["LoadedBoard"] = board;
+                RedirectToAction("Index");
+            }
+            //submitGameDetails(board);
         }
 
     }

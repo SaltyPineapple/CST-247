@@ -4,6 +4,13 @@
     ViewBag.Title = "Index";
 }
 
+    <script language="JavaScript">
+        function LoadBoard() {
+            $.post("/Game/GetGameState");
+        }
+      
+    </script>
+
 <h1>Welcome @System.Web.HttpContext.Current.User.Identity.Name</h1>
 
 <h4>Select Your Game Options</h4>
@@ -12,7 +19,7 @@
     @using (Html.BeginForm("submitGameDetails", "Game", FormMethod.Post))
     {
         <div class="radioContainer">
-            <div class="col-md-10"  id="difficultyRadio">
+            <div class="col-md-10" id="difficultyRadio">
                 <strong>@Html.Label("Select Game Difficulty")</strong>
                 <br />
                 @Html.RadioButtonFor(m => m.difficulty, "easy")
@@ -37,6 +44,12 @@
                 @Html.Label("Large")
             </div>
         </div>
-            <button type="submit">Let's Play!</button>       
-     }
-        </div>
+        <button type="submit">Let's Play!</button>
+        if (System.Web.HttpContext.Current.Session["flag"] != null)
+        {
+            <button type="submit" onclick="LoadBoard();">Load Game?</button>
+            System.Web.HttpContext.Current.Session["flag"] = true;
+        }
+
+    }
+</div>

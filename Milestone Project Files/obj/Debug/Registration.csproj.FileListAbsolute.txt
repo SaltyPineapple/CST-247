@@ -146,3 +146,5 @@ C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\S
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\System.Numerics.Vectors.xml
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\System.Text.Encodings.Web.xml
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Newtonsoft.Json.dll
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Newtonsoft.Json.xml

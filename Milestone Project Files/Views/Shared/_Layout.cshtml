@@ -36,10 +36,22 @@
                             @Html.ActionLink("Logout", "Index", "Login", new { area = "" }, new { @class = "navbar-nav" })
                         </li>
                     }
+                    @if (System.Web.HttpContext.Current.Session["GameBoard"] != null)
+                    {
+                        <li class="nav-item">                      
+                            @Html.ActionLink("Start New Game?", "Index", "Game", new { onclick = "setFlag();" }, new { @class = "navbar-nav" })
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
     </div>
+
+    <script>
+        function setFlag() {
+            System.Web.HttpContext.Current.Session["flag"] = null;
+        }
+    </script>
 
     <div class="container body-content">
         @RenderBody()
