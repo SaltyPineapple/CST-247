@@ -1,0 +1,57 @@
+﻿@model BibleVerseSearchApp.Models.Verse
+
+@{
+    ViewBag.Title = "EntryPermitted";
+}
+
+<h2>Verse Entered!</h2>
+
+<div>
+    <h4>Verse</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Testament)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Testament)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Book)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Book)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chapter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chapter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VerseNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VerseNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BibleVerse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BibleVerse)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to Home", "../Home")
+</p>
