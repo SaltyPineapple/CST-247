@@ -1,5 +1,7 @@
 ﻿using Milestone2.Models;
 using Milestone2.Services.Business;
+using NLog;
+using Registration.Services.Utility;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -18,64 +20,78 @@ namespace Milestone2.Controllers
 {
     public class LoginController : Controller
     {
+
         // GET: Login
         public ActionResult Index()
         {
+            //Logging
+            MyLogger.GetInstance().Info(" Entering Login Controller");
+
             LoginModel login = new LoginModel();
             return View(login);
         }
 
+        /*
+         * This method is used to log user into system
+         */
         [HttpPost]
         public ActionResult Login(LoginModel user)
         {
-            //Data validation
-            if (ModelState.IsValid)
+            //Logging
+            MyLogger.GetInstance().Info(" Entering Login Method in Login Controller");
+            try
             {
-                SecurityService service = new SecurityService();
-
-                //Calling helper methods to check credentials
-                bool flag = service.Authenticate(user);
-
-                if (flag) //Succesful login
+                //Data validation
+                if (ModelState.IsValid)
                 {
-                    //Saving user in session
-                    System.Web.HttpContext.Current.Session["user"] = user;
+                    SecurityService service = new SecurityService();
 
-                    FormsAuthentication.SetAuthCookie(user.UserName, false);
-                    FormsAuthentication.RedirectFromLoginPage(user.UserName, false);
-                    return View("LoginSuccess", user);
+                    //Calling helper methods to check credentials
+                    bool flag = service.Authenticate(user);
+
+                    if (flag) //Succesful login
+                    {
+                        //Logging
+                        MyLogger.GetInstance().Info(" Successful Login --> Exiting Login Controller");                        
+                        //Saving user in session
+                        Session["user"] = user;
+
+                        FormsAuthentication.RedirectFromLoginPage(user.UserName, false);
+                        return View("LoginSuccess", user);
+                    }
+                    else //Failed Login
+                    {
+                        //Logging
+                        MyLogger.GetInstance().Info(" Failed Login --> Exiting Login Controller");
+
+                        //Clearing session
+                        Session.Clear();
+                        return View("LoginFailure", user);
+                    }
                 }
-                else //Failed Login
-                { 
+                else
+                {
+                    //Clearing session
+                    Session.Clear();
                     return View("LoginFailure", user);
                 }
             }
-            else
+            catch(Exception e)
             {
-                return View("LoginFailure", user);
-            }
+                //Logging
+                MyLogger.GetInstance().Error("Exception in Login controller! " + e.Message);
+                return Content("Exception in Login Controller " + e.Message);
+            }            
         }
 
-        //This method logs the user out. Still needs work, doesnt clea session correctly yet
+        /*
+         * This method clears all session variables and redirects user to login page
+         */
         public ActionResult Logout()
         {
-            FormsAuthentication.SignOut();
-            Session.Abandon();
-
-            // clear authentication cookie
-            HttpCookie cookie1 = new HttpCookie(FormsAuthentication.FormsCookieName, "");
-            cookie1.Expires = DateTime.Now.AddYears(-1);
-            Response.Cookies.Add(cookie1);
-
-            // clear session cookie (not necessary for your current problem but i would recommend you do it anyway)
-            SessionStateSection sessionStateSection = (SessionStateSection)WebConfigurationManager.GetSection("system.web/sessionState");
-            HttpCookie cookie2 = new HttpCookie(sessionStateSection.CookieName, "");
-            cookie2.Expires = DateTime.Now.AddYears(-1);
-            Response.Cookies.Add(cookie2);
+            System.Web.HttpContext.Current.Session.Clear();
 
             FormsAuthentication.RedirectToLoginPage();
-
-
             return View("Index");
         }
        

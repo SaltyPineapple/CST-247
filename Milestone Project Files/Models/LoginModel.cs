@@ -13,6 +13,17 @@ namespace Milestone2.Models
 {
     public class LoginModel
     {
+        public LoginModel(String username, String password)
+        {
+            this.UserName = username;
+            this.Password = password;
+        }
+
+        public LoginModel()
+        {
+
+        }
+
         [DisplayName("Username: ")]
         [Required(AllowEmptyStrings = false)]
         [MaxLength(15, ErrorMessage ="Username can only be 15 characters long")]

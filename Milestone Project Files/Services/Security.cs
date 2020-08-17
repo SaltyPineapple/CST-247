@@ -14,7 +14,9 @@ namespace Registration.Services {
 
         //SqlConnection connection = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Players;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
 
-
+        /*
+         * This method checks if provided user has already been registered
+         */
         public bool existingUser(PlayerModel model) {
 
             using (var connection = ConnectToDb())
@@ -59,6 +61,9 @@ namespace Registration.Services {
 
         }
 
+        /*
+         * This method adds a new user to the database
+         */
         public void addNewUser(PlayerModel model) {
 
             using (var connection = ConnectToDb())

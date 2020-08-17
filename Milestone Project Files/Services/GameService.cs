@@ -28,6 +28,9 @@ namespace Registration.Services
             }
         }
 
+        /*
+         * Sets up game board
+         */
         public Board SetUpBoard(Board b)
         {
             b.setSizeFromRadio(b.size);
@@ -37,6 +40,9 @@ namespace Registration.Services
             return b;
         }
 
+        /*
+         * This method checks if game win conditions have been met
+         */
         public bool checkWin(Board gameBoard)
         {
             int numBombs = 0;
@@ -67,7 +73,6 @@ namespace Registration.Services
 
         /*
          * This method wraps up the game by displaying full game board and win message 
-         * 
          */
         public string finishGame(Board gameBoard)
         {
@@ -85,6 +90,9 @@ namespace Registration.Services
             }
         }
 
+        /*
+         * This method return the correct partial view based on game board size
+         */
         public String getPartialView(Board gameboard)
         {
             switch (gameboard.size)

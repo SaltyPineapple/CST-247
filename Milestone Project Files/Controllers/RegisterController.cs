@@ -1,5 +1,7 @@
-﻿using Registration.Models;
+﻿using Milestone2.Models;
+using Registration.Models;
 using Registration.Services;
+using Registration.Services.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,16 +23,21 @@ namespace Registration.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            //Logging
+            MyLogger.GetInstance().Info(" Entering Register Controller");
+
             return View("Register");
         }
 
 
-        // Check for existing user
-        // if user already exists, ask to make new user
-        // otherwise register new user
+        /*
+         * This method checks if user already exists, if not then user is created
+         */
         [HttpPost]
         public ActionResult Register(PlayerModel model) {
             Security registration = new Security();
+
+            //User exists already
             if (registration.existingUser(model)) {
                 return View("RegisterFailed");
             }
@@ -38,9 +45,8 @@ namespace Registration.Controllers
                 registration.addNewUser(model);
 
                 //Saving user in session
-                System.Web.HttpContext.Current.Session["user"] = model;
+                System.Web.HttpContext.Current.Session["user"] = new LoginModel(model.Username, model.Password);
 
-                FormsAuthentication.SetAuthCookie(model.Username, false);
                 FormsAuthentication.RedirectFromLoginPage(model.Username, false);
                 return View("RegisterPassed");
             }

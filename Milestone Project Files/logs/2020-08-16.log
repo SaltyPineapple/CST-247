@@ -1,0 +1,101 @@
+2020-08-16 15:00:17.0940 INFO  Successful Login --> Exiting Login Controller
+2020-08-16 15:44:47.1180 INFO  Entering Home Controller
+2020-08-16 15:44:50.3989 INFO  Inside OnButtonClick method
+2020-08-16 15:44:56.2664 INFO  Entering Login Method in Login Controller
+2020-08-16 15:44:57.4006 INFO  Successful Login --> Exiting Login Controller
+2020-08-16 15:44:57.4587 INFO  Entering Game Controller
+2020-08-16 15:45:02.6854 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 15:45:02.6854 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 15:45:03.5076 INFO  Inside onButtonClick method inside Game controller
+2020-08-16 15:45:04.6142 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 15:45:06.9797 INFO  Resetting Game State --> Inside StartNewGame method
+2020-08-16 15:45:06.9907 INFO  Entering Game Controller
+2020-08-16 15:45:08.2441 INFO  Entering Login Controller
+2020-08-16 15:45:09.6547 INFO  Entering Login Controller
+2020-08-16 15:45:10.1109 INFO  Entering Login Controller
+2020-08-16 16:00:45.0539 INFO  Entering Home Controller
+2020-08-16 16:00:49.0428 INFO  Inside OnButtonClick method
+2020-08-16 16:00:53.1921 INFO  Entering Login Method in Login Controller
+2020-08-16 16:00:54.2634 INFO  Successful Login --> Exiting Login Controller
+2020-08-16 16:00:54.3234 INFO  Entering Game Controller
+2020-08-16 16:00:57.8740 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 16:00:57.8740 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 16:00:58.4672 INFO  Inside onButtonClick method inside Game controller
+2020-08-16 16:00:59.9177 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 16:01:00.7499 INFO  Entering Game Controller
+2020-08-16 16:01:01.9151 INFO  Retrieving saved Game State --> Inside GetGameState method
+2020-08-16 16:01:02.4372 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 16:01:02.4372 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 16:01:03.6135 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 16:01:04.4559 INFO  Resetting Game State --> Inside StartNewGame method
+2020-08-16 16:01:04.4679 INFO  Entering Game Controller
+2020-08-16 16:01:10.3899 INFO  Entering Login Controller
+2020-08-16 16:01:11.6323 INFO  Entering Login Controller
+2020-08-16 16:01:12.8859 INFO  Entering Register Controller
+2020-08-16 16:01:38.0833 INFO  Entering Register Controller
+2020-08-16 16:05:31.5743 INFO  Entering Home Controller
+2020-08-16 16:05:43.6249 INFO  Inside OnButtonClick method
+2020-08-16 16:05:47.3472 INFO  Entering Login Method in Login Controller
+2020-08-16 16:05:47.6762 INFO  Successful Login --> Exiting Login Controller
+2020-08-16 16:05:47.7362 INFO  Entering Game Controller
+2020-08-16 16:05:51.2364 INFO  Entering Login Controller
+2020-08-16 16:05:53.3651 INFO  Entering Register Controller
+2020-08-16 16:06:40.9095 INFO  Entering Home Controller
+2020-08-16 16:06:44.1485 INFO  Inside OnButtonClick method
+2020-08-16 16:06:45.1738 INFO  Entering Register Controller
+2020-08-16 16:08:08.2383 INFO  Entering Home Controller
+2020-08-16 16:08:10.2390 INFO  Inside OnButtonClick method
+2020-08-16 16:12:59.3582 INFO  Entering Home Controller
+2020-08-16 16:13:20.7633 INFO  Inside OnButtonClick method
+2020-08-16 16:13:40.4082 INFO  Entering Game Controller
+2020-08-16 16:13:47.5643 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 16:13:47.5643 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 16:13:48.6506 INFO  Inside onButtonClick method inside Game controller
+2020-08-16 16:13:49.5779 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 16:13:50.3822 INFO  Entering Game Controller
+2020-08-16 16:13:51.5512 INFO  Retrieving saved Game State --> Inside GetGameState method
+2020-08-16 16:13:52.0693 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 16:13:52.0693 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 16:13:53.4116 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 16:13:54.3659 INFO  Resetting Game State --> Inside StartNewGame method
+2020-08-16 16:13:54.3799 INFO  Entering Game Controller
+2020-08-16 16:13:55.8322 INFO  Entering Login Controller
+2020-08-16 16:13:59.7169 INFO  Entering Login Method in Login Controller
+2020-08-16 16:13:59.7169 INFO  Successful Login --> Exiting Login Controller
+2020-08-16 16:40:08.2043 INFO  Entering Home Controller
+2020-08-16 16:40:14.7361 INFO  Inside OnButtonClick method
+2020-08-16 16:40:37.6694 INFO  Entering Game Controller
+2020-08-16 16:41:01.8100 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 16:41:01.8100 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 16:41:02.8272 INFO  Inside onButtonClick method inside Game controller
+2020-08-16 16:41:07.1798 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 16:41:08.5052 INFO  Entering Game Controller
+2020-08-16 16:41:35.6187 INFO  Resetting Game State --> Inside StartNewGame method
+2020-08-16 16:41:35.6367 INFO  Entering Game Controller
+2020-08-16 16:41:37.5104 INFO  Entering Login Controller
+2020-08-16 16:41:43.9444 INFO  Entering Login Method in Login Controller
+2020-08-16 16:41:43.9444 INFO  Successful Login --> Exiting Login Controller
+2020-08-16 16:41:43.9754 INFO  Entering Game Controller
+2020-08-16 16:41:50.5596 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 16:41:50.5596 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 16:41:51.2859 INFO  Inside onButtonClick method inside Game controller
+2020-08-16 16:41:55.1641 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 16:41:56.0106 INFO  Entering Game Controller
+2020-08-16 16:42:06.8001 INFO  Retrieving saved Game State --> Inside GetGameState method
+2020-08-16 16:42:07.3172 INFO  Entering submitGameDetails method inside Game Controller
+2020-08-16 16:42:07.3172 INFO  Game board created --> Inside submitGameDetails method in Game controller
+2020-08-16 16:42:08.3784 INFO  Saving current Game State --> Inside SaveGameState method 
+2020-08-16 16:42:09.2617 INFO  Resetting Game State --> Inside StartNewGame method
+2020-08-16 16:42:09.2737 INFO  Entering Game Controller
+2020-08-16 16:42:10.9203 INFO  Entering Login Controller
+2020-08-16 16:42:12.4078 INFO  Entering Login Controller
+2020-08-16 16:42:13.0780 INFO  Entering Login Controller
+2020-08-16 16:42:13.7553 INFO  Entering Register Controller
+2020-08-16 16:42:14.4424 INFO  Entering Login Controller
+2020-08-16 16:42:15.9770 INFO  Entering Login Controller
+2020-08-16 16:42:18.4217 INFO  Entering Login Method in Login Controller
+2020-08-16 16:42:18.4217 INFO  Successful Login --> Exiting Login Controller
+2020-08-16 16:42:18.4417 INFO  Entering Game Controller
+2020-08-16 16:42:21.5045 INFO  Entering Register Controller
+2020-08-16 16:42:22.7028 INFO  Entering Game Controller
+2020-08-16 16:42:29.7513 INFO  Entering Login Controller
