@@ -151,3 +151,13 @@ C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\N
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\NLog.config
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\NLog.dll
 C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\NLog.xml
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\System.Threading.Tasks.Extensions.dll
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Unity.Abstractions.dll
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Unity.Container.dll
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Unity.Mvc.dll
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\WebActivatorEx.dll
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\System.Threading.Tasks.Extensions.xml
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Unity.Abstractions.pdb
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Unity.Container.pdb
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Unity.Mvc.pdb
+C:\Users\thegr\Desktop\CST-247-GroupFolder\CST-247\Milestone Project Files\bin\Unity.Mvc.xml

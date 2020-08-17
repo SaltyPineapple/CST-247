@@ -35,21 +35,32 @@ namespace Registration.Controllers
          */
         [HttpPost]
         public ActionResult Register(PlayerModel model) {
-            Security registration = new Security();
 
-            //User exists already
-            if (registration.existingUser(model)) {
-                return View("RegisterFailed");
+            try
+            {
+                Security registration = new Security();
+
+                //User exists already
+                if (registration.existingUser(model))
+                {
+                    return View("RegisterFailed");
+                }
+                else
+                {
+                    registration.addNewUser(model);
+
+                    //Saving user in session
+                    System.Web.HttpContext.Current.Session["user"] = new LoginModel(model.Username, model.Password);
+
+                    FormsAuthentication.RedirectFromLoginPage(model.Username, false);
+                    return View("RegisterPassed");
+                }
             }
-            else {
-                registration.addNewUser(model);
-
-                //Saving user in session
-                System.Web.HttpContext.Current.Session["user"] = new LoginModel(model.Username, model.Password);
-
-                FormsAuthentication.RedirectFromLoginPage(model.Username, false);
-                return View("RegisterPassed");
-            }
+            catch(Exception e)
+            {
+                MyLogger.GetInstance().Info(" Exception inside Register -->" + e.Message);
+                return View("Index");
+            }            
         }
     }
 }

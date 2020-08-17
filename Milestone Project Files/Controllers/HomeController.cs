@@ -24,21 +24,29 @@ namespace Registration.Controllers
         [HttpPost]
         public ActionResult OnButtonClick(String homeButtonValue)
         {
-            //Logging
-            MyLogger.GetInstance().Info(" Inside OnButtonClick method");
+            try
+            {
+                //Logging
+                MyLogger.GetInstance().Info(" Inside OnButtonClick method");
 
-            if (homeButtonValue == "login")
-            {
-                return View("~/Views/Login/Index.cshtml");
+                if (homeButtonValue == "login")
+                {
+                    return View("~/Views/Login/Index.cshtml");
+                }
+                else if (homeButtonValue == "register")
+                {
+                    return View("~/Views/Register/Register.cshtml");
+                }
+                else
+                {
+                    return View("Index");
+                }
             }
-            else if(homeButtonValue == "register")
+            catch(Exception e)
             {
-                return View("~/Views/Register/Register.cshtml");
-            }
-            else
-            {
-                return View("Index");
-            }
+                MyLogger.GetInstance().Info(" Exception inside OnButtonClick -->" + e.Message);
+                return View("Index"); 
+            }            
         }
     }
 }
